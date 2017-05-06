@@ -1,0 +1,2 @@
+module Api::FlashcardHelper
+end

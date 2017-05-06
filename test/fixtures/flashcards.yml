@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  pic: MyString
+  definition: MyString
+  sentence: MyString
+  origin: MyString
+  deck_id: 1
+  tier_id: 1
+
+two:
+  word: MyString
+  pic: MyString
+  definition: MyString
+  sentence: MyString
+  origin: MyString
+  deck_id: 1
+  tier_id: 1
