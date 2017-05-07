@@ -29,7 +29,8 @@ class FlashcardShow extends Component {
     console.log("nextCard start d=", d);
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
-    const deckIndex = this.state.deckIndex + 1;
+
+    const deckIndex = this.state.deckIndex;
     //
     // let numCards = 0;
     // for (const k1 of Object.keys(d)) {
@@ -42,12 +43,8 @@ class FlashcardShow extends Component {
     console.log("deck", deck);
     console.log("deck.length", deck.length);
     console.log("deckIndex", deckIndex);
-    if (this.state.deckIndex + 1 >= deck.length - 1) {
+    if (deckIndex === deck.length - 1) {
       this.nextRound();
-    } else {
-      this.setState({
-        deckIndex
-      });
     }
     this.props.fetchDeck(this.props.deckId);
     // console.log("deck index", this.state.deckIndex);
@@ -120,6 +117,7 @@ class FlashcardShow extends Component {
     const tierId = flashcard.tier_id;
     this.nextCard();
 
+
     e.preventDefault();
     if (tierId < 4) {
       this.props.changeTierId(cardId, tierId + 1);
@@ -136,6 +134,10 @@ class FlashcardShow extends Component {
     const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
+
+    this.setState({
+      deckIndex: this.state.deckIndex + 1
+    });
 
     this.nextCard();
     e.preventDefault();
