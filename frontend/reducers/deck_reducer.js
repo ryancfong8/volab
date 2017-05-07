@@ -1,4 +1,4 @@
-import { RECEIVE_DECK, RECEIVE_PHOTO } from '../actions/deck_actions.js';
+import { RECEIVE_DECK } from '../actions/deck_actions.js';
 // import { RECEIVE_REVIEW, REMOVE_REVIEW, RECEIVE_REVIEW_ERRORS, REMOVE_REVIEW_ERRORS } from '../actions/review_actions';
 import { merge } from 'lodash';
 
@@ -22,10 +22,6 @@ const deckReducer = (oldState = nullDeck, action) => {
     //   let index = newdeck.reviews.indexOf(action.review);
     //   newdeck.reviews.splice(index, 1);
     //   return newdeck;
-    // case RECEIVE_REVIEW_ERRORS:
-    //     return merge({}, oldState, {reviewErrors: action.reviewErrors});
-    // case REMOVE_REVIEW_ERRORS:
-    //     return merge({}, oldState.reviewErrors, {reviewErrors: []});
     default:
       return oldState;
   }
