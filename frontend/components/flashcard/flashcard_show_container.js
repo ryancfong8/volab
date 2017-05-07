@@ -3,7 +3,8 @@ import FlashcardShow from './flashcard_show';
 import { changeTierId } from '../../actions/flashcard_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  flashcards: state.deck.flashcards
+  deck: state.deck,
+  currentTier: ownProps.currentTier
 });
 
 const mapDispatchToProps = dispatch => ({
