@@ -6,15 +6,10 @@ class Deck extends React.Component {
     super(props);
 
     this.state = {
-      currentCard: "",
-      currentTier: "",
-      Tier1: [],
-      Tier2: [],
-      Tier3: [],
-      Tier4: []
+      currentCard: null,
+      currentTier: 1,
+      deck: this.props.deck
     };
-
-    this.chooseTier = this.chooseTier.bind(this);
 
   }
 
@@ -23,59 +18,37 @@ class Deck extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let cards = nextProps.deck.flashcards.sort((a, b) => (
-      b.tier_id - a.tier_id
-    ));
-    let tier = this.chooseTier();
-    this.setState({
-      currentCard: this.state.currentTier[0],
-      currentTier: tier,
-      Tier1: this.props.deck.flashcards.filter(card => (
-        card.tier_id === 1
-      )),
-      Tier2: this.props.deck.flashcards.filter(card => (
-        card.tier_id === 2
-      )),
-      Tier3: this.props.deck.flashcards.filter(card => (
-        card.tier_id === 3
-      )),
-      Tier4: this.props.deck.flashcards.filter(card => (
-        card.tier_id === 4
-      )),
-    });
+    if (nextProps.currentCard) {
+      this.setState({ currentCard: nextProps.currentCard });
+    }
+    if (nextProps.currentTier) {
+      this.setState({ currentTier: nextProps.currentTier });
+    }
+    if (nextProps.deck) {
+      this.setState({ deck: nextProps.deck });
+    }
   }
 
-  chooseTier() {
-    if (this.state.Tier4) {
-      return "Tier4";
-    }
-    else if (this.state.Tier3) {
-      return "Tier3";
-    }
-    else if (this.state.Tier2) {
-      return "Tier2";
-    }
-    else if (this.state.Tier1) {
-      return "Tier1";
-    }
-  }
+  // <div className= "Menu">
+  //   <h1>Menu</h1>
+  //   <ul className = "Menu-List">
+  //     {this.props.deck.flashcards.map(card => (
+  //       <li key = {card.id}>
+  //         {card.word}
+  //         {card.tier_id}
+  //       </li>
+  //     ))}
+  //   </ul>
+  // </div>
+
 
   render() {
     return(
       <div className = "Deck-Show">
-        <div className= "Menu">
-          <h1>Menu</h1>
-          <ul className = "Menu-List">
-            {this.props.deck.flashcards.map(card => (
-              <li key = {card.id}>
-                {card.word}
-                {card.tier_id}
-              </li>
-            ))}
-          </ul>
-        </div>
+
         <div className = "Flashcard">
-          <FlashcardShowContainer />
+          <FlashcardShowContainer
+            currentTier={ this.state.currentTier } />
         </div>
       </div>
     );

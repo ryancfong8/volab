@@ -5,7 +5,18 @@ import { merge } from 'lodash';
 const nullDeck = {
   id: "",
   title: "",
-  flashcards: []
+  flashcards: {}
+};
+
+const toObj = flashcards => {
+  let res = {};
+  flashcards.forEach(c => {
+    if (!res[c.tier_id]) {
+      res[c.tier_id] = [];
+    }
+    res[c.tier_id].push(c);
+  });
+  return res;
 };
 
 const deckReducer = (oldState = nullDeck, action) => {
@@ -13,7 +24,9 @@ const deckReducer = (oldState = nullDeck, action) => {
   let newdeck;
   switch(action.type){
     case RECEIVE_DECK:
-      return merge({}, action.deck);
+      newdeck = merge({}, oldState);
+      newdeck.flashcards = toObj(action.deck.flashcards);
+      return newdeck;
     // case RECEIVE_FLASHCARD:
     //   newDeck = merge({}, oldState);
     //   newdeck.reviews.push(action.review);
