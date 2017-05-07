@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class FlashcardShow extends Component {
 
-  constructor() {
+  constructor(props) {
+    super(props)
     this.state = {
       showFront: true,
       deckIndex: 0
@@ -18,7 +19,7 @@ class FlashcardShow extends Component {
   toggleShow(e) {
     e.preventDefault();
     this.setState({
-      showFront: !showFront
+      showFront: !this.state.showFront
     });
   }
 
@@ -28,9 +29,14 @@ class FlashcardShow extends Component {
       deckIndex
     })
 
-    if (this.deckIndex >= this.props.deck.length - 1) {
+    if (this.deckIndex >= this.props.flashcards.length - 1) {
       this.nextRound();
     }
+
+    this.setState({
+      showFront: true
+    });
+
   }
 
   nextRound() {
@@ -38,7 +44,7 @@ class FlashcardShow extends Component {
   }
 
   handleNeg(e) {
-    const flashcard = this.props.deck[this.state.deckIndex];
+    const flashcard = this.props.flashcards[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
 
@@ -52,12 +58,13 @@ class FlashcardShow extends Component {
   }
 
   handlePos(e) {
-    const flashcard = this.props.deck[this.state.deckIndex];
+    const flashcard = this.props.flashcards[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
 
     e.preventDefault();
     if (tierId > 1) {
+      debugger;
       this.props.changeTierId(cardId, tierId - 1);
     }
 
@@ -66,22 +73,24 @@ class FlashcardShow extends Component {
   }
 
   render() {
-    const flashcard = this.props.deck[this.state.deckIndex];
-
+    const flashcard = this.props.flashcards[this.state.deckIndex];
+    if (!flashcard) return (<div></div>);
     let flashcardMain;
-    if (showFront) {
+    if (this.state.showFront) {
       flashcardMain = (
-        <div
+        <button
           onClick={ this.toggleShow }
           className="flashcard-show-main">
           <div className="flashcard-show-text">
             { flashcard.word }
           </div>
-        </div>
+        </button>
       );
     } else {
       flashcardMain = (
-        <div className="flashcard-show-main">
+        <button
+          onClick={ this.toggleShow }
+          className="flashcard-show-main">
           <div className="flashcard-show-text">
             { flashcard.word }
           </div>
@@ -99,21 +108,21 @@ class FlashcardShow extends Component {
           <div className="flashcard-show-text">
             { flashcard.origin }
           </div>
-        </div>
+        </button>
       );
     }
 
     const negButton = (
       <button
         onClick={ this.handleNeg }>
-        <i class="fa fa-times" aria-hidden="true"></i>
+        <i className="fa fa-times" aria-hidden="true"></i>
       </button>
     );
 
     const posButton = (
       <button
         onClick={ this.handlePos }>
-        <i class="fa fa-check" aria-hidden="true"></i>
+        <i className="fa fa-check" aria-hidden="true"></i>
       </button>
     );
 

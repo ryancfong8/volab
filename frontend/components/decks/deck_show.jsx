@@ -1,4 +1,5 @@
 import React from 'react';
+import FlashcardShowContainer from '../flashcard/flashcard_show_container';
 
 class Deck extends React.Component {
   constructor(props){
@@ -74,11 +75,7 @@ class Deck extends React.Component {
           </ul>
         </div>
         <div className = "Flashcard">
-          <h1>FlashCard</h1>
-            <p>{this.state.card.word}</p>
-            <p>{this.state.card.definition}</p>
-            <p>{this.state.card.sentence}</p>
-            <p>{this.state.card.origin}</p>
+          <FlashcardShowContainer />
         </div>
       </div>
     );
