@@ -61,7 +61,11 @@ class FlashcardShow extends Component {
     // jjust checking to see if our array has a value defined
     // at this index, which just happens to be true
     // need to fix
-    
+    // should change to update deck on nextCard such that object has
+    // proper keys, then do a proper check to see if a deeper key
+    // exists, if it does increment depth. on nextRound check to
+    // see the higher key exists, if it does then change currentTier
+    // and increment it, else decrement it
     if (deck[currentTier + 1] && currentTier + 1 <= 4) {
       // this.props.updateTier(this.props.currentTier + 1);
       this.props.updateDeck(true);
