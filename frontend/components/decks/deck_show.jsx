@@ -36,17 +36,6 @@ class Deck extends React.Component {
   //   this.props.requestDeck(parseInt(this.props.params.deckId, 10));
   // }
 
-  // <div className= "Menu">
-  //   <h1>Menu</h1>
-  //   <ul className = "Menu-List">
-  //     {this.props.deck.flashcards.map(card => (
-  //       <li key = {card.id}>
-  //         {card.word}
-  //         {card.tier_id}
-  //       </li>
-  //     ))}
-  //   </ul>
-  // </div>
   //
   // updateTier(tier) {
   //   this.setState({
@@ -62,10 +51,46 @@ class Deck extends React.Component {
           this.props.currentTier - 1);
   }
 
+  // <div className= "Menu">
+  //   <h1>Menu</h1>
+  //   <ul className = "Menu-List">
+  //     <text>Tier1</text>
+  //     {this.props.deck[1].map(card => (
+  //       <li key = {card.id}>
+  //         {card.word}
+  //       </li>
+  //     ))}
+  //   </ul>
+  //   <ul className = "Menu-List">
+  //     <text>Tier2</text>
+  //     {this.props.deck[2].map(card => (
+  //       <li key = {card.id}>
+  //         {card.word}
+  //       </li>
+  //     ))}
+  //   </ul>
+  //   <ul className = "Menu-List">
+  //     <text>Tier3</text>
+  //     {this.props.deck[3].map(card => (
+  //       <li key = {card.id}>
+  //         {card.word}
+  //       </li>
+  //     ))}
+  //   </ul>
+  //   <ul className = "Menu-List">
+  //     <text>Tier4</text>
+  //     {this.props.deck[4].map(card => (
+  //       <li key = {card.id}>
+  //         {card.word}
+  //       </li>
+  //     ))}
+  //   </ul>
+  // </div>
 
   render() {
     return(
       <div className = "Deck-Show">
+
 
         <div className = "Flashcard">
           <FlashcardShowContainer

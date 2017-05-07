@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'react-bootstrap';
+import { hashHistory } from 'react-router';
 
 class LoginModal extends React.Component {
 
@@ -39,7 +40,8 @@ class LoginModal extends React.Component {
       password: this.state.password
     };
     this.props.processForm({ user })
-              .then(this.closeModal());
+              .then(this.closeModal())
+              .then(() => hashHistory.push("decks"));
   }
 
   demo(event) {
@@ -49,7 +51,12 @@ class LoginModal extends React.Component {
       password: 'password'
     };
     this.props.processForm({ user })
-              .then(this.closeModal());
+              .then(this.closeModal())
+              .then(() => hashHistory.push("decks"));
+  }
+
+  logout() {
+    this.props.logout().then(hashHistory.push("/"));
   }
 
   render() {
@@ -62,9 +69,9 @@ class LoginModal extends React.Component {
       return (
         <div className='auth-modal'>
           <button
-            onClick={ this.props.logout }
+            onClick={ this.logout.bind(this) }
             type='button'
-            className="session-button login-button">
+            className="session-button-login-button">
             Logout
           </button>
         </div>
@@ -75,22 +82,23 @@ class LoginModal extends React.Component {
           <button
             onClick={ this.openModal() }
             type='button'
-            className="session-button login-button">
+            className="session-button-login-button">
             Login
           </button>
           <Modal
             show={ this.state.open }
             onHide={ this.closeModal() }
             className='login-modal'>
-            <Modal.Header closeButton>
-              <Modal.Title>Login</Modal.Title>
+            <Modal.Header  closeButton>
+              <Modal.Title className = "Modal-Title">
+                <text className= "Login">Login</text>
+              </Modal.Title>
               {errorList}
             </Modal.Header>
 
             <form onSubmit = {this.handleSubmit} className='session-form'>
-              <Modal.Body>
+              <Modal.Body className = "Modal-Body">
                 <label>
-                  Username
                   <input
                     type='text'
                     placeholder='Username'
@@ -98,7 +106,6 @@ class LoginModal extends React.Component {
                     className='auth-input'/>
                 </label>
                 <label>
-                  Password
                   <input
                     type='password'
                     placeholder='Password'
@@ -106,17 +113,18 @@ class LoginModal extends React.Component {
                     className='auth-input'/>
                 </label>
               </Modal.Body>
-              <Modal.Footer>
+              <Modal.Footer className = "Modal-Footer">
                 <Button
                   type='submit'
                   className='login-submit'>
                   Login
                 </Button>
+                <text className = "or"> Or </text>
                 <Button
                   onClick={this.demo}
                   type='button'
                   className='login-submit'>
-                  Guest
+                  Guest Login
                 </Button>
               </Modal.Footer>
             </form>
