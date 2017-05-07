@@ -8,6 +8,8 @@ ul {
 .Deck-Show {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .Menu {
@@ -32,4 +34,67 @@ ul {
   align-items: center;
   justify-content: center;
   width: 80%;
+}
+
+.flashcard-show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flashcard-show-main {
+  height: 70vh;
+  width: 70vh;
+  margin: 30px;
+  border-radius: 5px;
+  background-color: #f5f5dc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70vh;
+  align-items: center;
+}
+
+.Result-yes {
+  width: 100px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #008000;
+}
+
+.Result-no {
+  width: 100px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #ff0000;
+}
+
+.flashcard-show-word {
+  font-size: 64px;
+}
+
+.flashcard-show-img {
+  width: 500px;
+  height: 500px;
+}
+
+.flashcard-show-text {
+  font-size: 16px;
+}
+
+.Got-It {
+  font-size: 24px;
+  font-weight: bold;
 }

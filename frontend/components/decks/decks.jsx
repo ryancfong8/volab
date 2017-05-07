@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, hashHistory } from 'react-router';
 
 class Decks extends React.Component {
   constructor (props) {
@@ -12,10 +13,13 @@ class Decks extends React.Component {
 
   render() {
     return(
-      <div>
-        <ul>
+      <div className = "Deck-Index">
+        <text className='Dir'>Choose A Deck!</text>
+        <ul className = 'Deck-List'>
           {this.props.decks.map(deck => (
-              <li key = {deck.id}>{deck.title}</li>
+              <div key = {deck.id} className = "list-item">
+                <Link className="Link" to={`/decks/${deck.id}`}>{deck.title}</Link>
+              </div>
           ))}
         </ul>
       </div>
