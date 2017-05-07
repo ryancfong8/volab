@@ -30,7 +30,6 @@ const Root = ({ store }) => {
           <Route path="decks/:deckId" component= { DeckContainer } onEnter = {_ensureLoggedIn} />
         </Route>
       </Router>
-      <DevTools />
     </div>
   </Provider>
 );
