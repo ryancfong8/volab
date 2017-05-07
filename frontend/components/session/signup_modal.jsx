@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Modal, Button } from 'react-bootstrap';
 
 class SignupModal extends React.Component {
@@ -40,6 +40,7 @@ class SignupModal extends React.Component {
       password: this.state.password,
       email: this.state.email
     };
+    debugger;
     this.props.processForm({ user })
               .then(this.closeModal());
   }
