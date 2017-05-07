@@ -1,6 +1,6 @@
 class Api::FlashcardController < ApplicationController
   def create
-    @flashcard  = flashcard.new(flashcard_params)
+    @flashcard  = Flashcard.new(flashcard_params)
 
     if @flashcard.save
       render :show
@@ -10,22 +10,22 @@ class Api::FlashcardController < ApplicationController
   end
 
   def destroy
-    @flashcard = flashcard.find(params[:id])
+    @flashcard = Flashcard.find(params[:id])
     @flashcard.destroy
     render :show
   end
 
   def index
-    @flashcards = flashcards
+    @flashcards = Flashcard.all
     render :index
   end
 
   def show
-    @flashcard = flashcard.find(params[:id])
+    @flashcard = Flashcard.find(params[:id])
   end
 
   def update
-    @flashcard = flashcard.find(params[:cardId])
+    @flashcard = Flashcard.find(params[:cardId])
     if @flashcard.update_attribute(:tier_id, params[:tierId])
       render :show
     end

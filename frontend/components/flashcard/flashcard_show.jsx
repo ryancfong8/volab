@@ -19,7 +19,7 @@ class FlashcardShow extends Component {
   toggleShow(e) {
     e.preventDefault();
     this.setState({
-      showFront: !showFront
+      showFront: !this.state.showFront
     });
   }
 
@@ -32,6 +32,11 @@ class FlashcardShow extends Component {
     if (this.deckIndex >= this.props.flashcards.length - 1) {
       this.nextRound();
     }
+
+    this.setState({
+      showFront: true
+    });
+
   }
 
   nextRound() {
@@ -59,6 +64,7 @@ class FlashcardShow extends Component {
 
     e.preventDefault();
     if (tierId > 1) {
+      debugger;
       this.props.changeTierId(cardId, tierId - 1);
     }
 
@@ -70,19 +76,21 @@ class FlashcardShow extends Component {
     const flashcard = this.props.flashcards[this.state.deckIndex];
     if (!flashcard) return (<div></div>);
     let flashcardMain;
-    if (this.showFront) {
+    if (this.state.showFront) {
       flashcardMain = (
-        <div
+        <button
           onClick={ this.toggleShow }
           className="flashcard-show-main">
           <div className="flashcard-show-text">
             { flashcard.word }
           </div>
-        </div>
+        </button>
       );
     } else {
       flashcardMain = (
-        <div className="flashcard-show-main">
+        <button
+          onClick={ this.toggleShow }
+          className="flashcard-show-main">
           <div className="flashcard-show-text">
             { flashcard.word }
           </div>
@@ -100,7 +108,7 @@ class FlashcardShow extends Component {
           <div className="flashcard-show-text">
             { flashcard.origin }
           </div>
-        </div>
+        </button>
       );
     }
 
