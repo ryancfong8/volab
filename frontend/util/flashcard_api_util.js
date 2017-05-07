@@ -5,6 +5,10 @@ const FlashcardAPIUtil = {
       url: `api/flashcard/${cardId}`,
       data: { cardId, tierId }
     })
+  ),
+
+  createFlashcard: (data) => (
+    $.ajax({method: 'POST', url: `api/deck`, data: {data}})
   )
 };
 

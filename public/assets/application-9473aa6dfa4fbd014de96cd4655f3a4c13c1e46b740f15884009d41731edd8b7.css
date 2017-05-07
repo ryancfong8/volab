@@ -1,0 +1,358 @@
+/* line 5, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/deck.scss */
+.Deck-Index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(https://www.walldevil.com/wallpapers/a80/desk-laptop-mouse-book-plant-phone-notebook-apple.jpg);
+  opacity: .75;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* line 15, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/deck.scss */
+.Deck-List {
+  margin-top: 50px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #add8e6;
+  opacity: .9;
+}
+
+/* line 23, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/deck.scss */
+.list-item {
+  width: 300px;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 36, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/deck.scss */
+.Link {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0000ff;
+  margin-right: 30px;
+}
+
+/* line 43, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/deck.scss */
+.Dir {
+  font-size: 48px;
+  font-weight: bolder;
+  z-index: 3;
+  color: #000000;
+  margin-top: 20px;
+}
+/* line 4, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 8, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Deck-Show {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 15, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Menu {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+  background-color: #fff000;
+  align-items: center;
+}
+
+/* line 24, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Menu-List {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 31, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Flashcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+/* line 39, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.flashcard-show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 44, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.flashcard-show-main {
+  height: 70vh;
+  width: 70vh;
+  margin: 30px;
+  border-radius: 5px;
+  background-color: #f5f5dc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 56, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70vh;
+  align-items: center;
+}
+
+/* line 64, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Result-yes {
+  width: 100px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #008000;
+}
+
+/* line 74, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Result-no {
+  width: 100px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #ff0000;
+}
+
+/* line 84, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.flashcard-show-word {
+  font-size: 64px;
+}
+
+/* line 88, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.flashcard-show-img {
+  width: 500px;
+  height: 500px;
+}
+
+/* line 93, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.flashcard-show-text {
+  font-size: 16px;
+}
+
+/* line 97, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/flashcard.scss */
+.Got-It {
+  font-size: 24px;
+  font-weight: bold;
+}
+/* line 5, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  background-color: #01764a;
+}
+
+/* line 14, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.auth-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* line 21, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.auth-modal {
+  margin: 10px;
+}
+
+/* line 25, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.session-button-login-button {
+  width: 80px;
+  height: 45px;
+  font: 20px;
+  border-radius: 5px;
+  background-color: #cccccc;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
+
+/* line 35, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.session-button-login-button:hover {
+  background-color: #ffffff;
+}
+
+/* line 39, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.session-button-signup-button {
+  width: 80px;
+  height: 45px;
+  font: 20px;
+  border-radius: 5px;
+  background-color: #cccccc;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
+
+/* line 49, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.session-button-signup-button:hover {
+  background-color: #ffffff;
+}
+
+/* line 53, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* line 62, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.title {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+/* line 73, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.name {
+  font-family: 'Lato', sans-serif;
+  font-size: 64px;
+  font-weight: bolder;
+}
+
+/* line 79, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.slogan {
+  font-size: 36px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+/* line 85, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.pic {
+  object-fit: cover;
+  opacity: .8;
+  z-index: -1;
+}
+
+/* line 91, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 97, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.Modal-Title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 103, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.Modal-Body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 108, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.Modal-Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 114, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.Login {
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+/* line 119, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.auth-input {
+  width: 350px;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 24px;
+  margin: 10px;
+}
+
+/* line 128, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.or {
+  margin: 10px;
+}
+
+/* line 132, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.login-submit {
+  font-size: 24px;
+}
+
+/* line 136, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.logo-header-pic {
+  height: 70px;
+  width: 200px;
+  margin-left: 10px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+/* line 144, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.logo-header {
+  margin-left: 10px;
+  font-weight: bolder;
+  font-size: 40px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* line 152, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.Main-Logo {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* line 158, /Users/ryanfong/Documents/AngelHack/AngelHack/app/assets/stylesheets/api/sessions.scss */
+.welcome {
+  color: #ffffff;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
