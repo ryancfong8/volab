@@ -1,4 +1,4 @@
-import { RECEIVE_DECK } from '../actions/deck_actions.js';
+import { RECEIVE_DECK, RECEIVE_FETCHED_DECK } from '../actions/deck_actions.js';
 // import { RECEIVE_REVIEW, REMOVE_REVIEW, RECEIVE_REVIEW_ERRORS, REMOVE_REVIEW_ERRORS } from '../actions/review_actions';
 import { merge } from 'lodash';
 
@@ -28,6 +28,10 @@ const deckReducer = (oldState = nullDeck, action) => {
       newdeck = merge({}, oldState);
       newdeck.flashcards = toObj(action.deck.flashcards);
       newdeck.currentLevel = action.currentLevel;
+      return newdeck;
+    case RECEIVE_FETCHED_DECK:
+      newdeck = merge({}, oldState);
+      newdeck.flashcards = toObj(action.deck.flashcards);
       return newdeck;
     // case RECEIVE_FLASHCARD:
     //   newDeck = merge({}, oldState);

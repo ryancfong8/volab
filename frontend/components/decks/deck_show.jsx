@@ -13,6 +13,7 @@ class Deck extends React.Component {
 
     // this.updateTier = this.updateTier.bind(this);
     this.updateDeck = this.updateDeck.bind(this);
+    this.updateDeck2 = this.updateDeck2.bind(this);
   }
 
   componentWillMount() {
@@ -20,15 +21,22 @@ class Deck extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("This is in componentWillReceiveProps, deck_show, nextProps=", nextProps);
-    if (nextProps.currentCard) {
-      this.setState({ currentCard: nextProps.currentCard });
-    }
-    if (nextProps.currentTier) {
-      this.setState({ currentTier: nextProps.currentTier });
-    }
+    // console.log("This is in componentWillReceiveProps, deck_show, nextProps=", nextProps);
+    // if (nextProps.currentCard) {
+    //   this.setState({ currentCard: nextProps.currentCard });
+    // }
+    // if (nextProps.currentTier) {
+    //   this.setState({ currentTier: nextProps.currentTier });
+    // }
+    // if (nextProps.deck) {
+    //   this.setState({ deck: nextProps.deck });
+    // }
+
     if (nextProps.deck) {
-      this.setState({ deck: nextProps.deck });
+      this.setState({
+        currentTier: nextProps.currentTier,
+        deck: nextProps.deck
+      });
     }
   }
 
@@ -49,6 +57,12 @@ class Deck extends React.Component {
           this.props.currentTier + 1)
       : this.props.requestDeck(parseInt(this.props.params.deckId, 10),
           this.props.currentTier - 1);
+  }
+
+  updateDeck2(newTier) {
+    console.log("from updateDeck2", newTier);
+    this.props.requestDeck(parseInt(this.props.params.deckId, 10),
+        newTier);
   }
 
   // <div className= "Menu">
@@ -97,6 +111,7 @@ class Deck extends React.Component {
             currentTier={ this.state.currentTier }
             updateTier={ this.updateTier }
             updateDeck={ this.updateDeck }
+            updateDeck2={ this.updateDeck2 }
             deck={ this.state.deck }
             deckId={ parseInt(this.props.params.deckId, 10) }
             />

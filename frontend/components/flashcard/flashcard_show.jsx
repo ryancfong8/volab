@@ -24,19 +24,34 @@ class FlashcardShow extends Component {
   }
 
   nextCard() {
+
     const d = this.props.deck.flashcards;
+    console.log("nextCard start d=", d);
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
     const deckIndex = this.state.deckIndex + 1;
-    this.setState({
-      deckIndex
-    });
+    //
+    // let numCards = 0;
+    // for (const k1 of Object.keys(d)) {
+    //   for (const k2 of Object.keys(d[k1])) {
+    //     numCards++;
+    //   }
+    // }
 
-    console.log("deck index", this.state.deckIndex);
-    console.log("deck length", deck.length);
-    if (this.state.deckIndex >= deck.length - 1) {
+    // console.log("nextCard(), numCards=", numCards);
+    console.log("deck", deck);
+    console.log("deck.length", deck.length);
+    console.log("deckIndex", deckIndex);
+    if (this.state.deckIndex + 1 >= deck.length - 1) {
       this.nextRound();
+    } else {
+      this.setState({
+        deckIndex
+      });
     }
+    this.props.fetchDeck(this.props.deckId);
+    // console.log("deck index", this.state.deckIndex);
+    // console.log("deck length", deck.length);
 
     this.setState({
       showFront: true
@@ -45,17 +60,14 @@ class FlashcardShow extends Component {
   }
 
   nextRound() {
+
     this.setState({
       deckIndex: 0
     });
 
     const d = this.props.deck.flashcards;
+    const deckId = this.props.deckId;
     const currentTier = this.props.currentTier;
-    const deck = d[currentTier];
-    console.log("d from nextRound", d);
-    console.log('currentTier from nextRound', currentTier);
-    console.log('deck from nextRound', deck);
-    console.log('deck[currentTier + 1]', deck[currentTier + 1]);
 
     // this is not checking to see if lower level eexists, its
     // jjust checking to see if our array has a value defined
@@ -66,18 +78,37 @@ class FlashcardShow extends Component {
     // exists, if it does increment depth. on nextRound check to
     // see the higher key exists, if it does then change currentTier
     // and increment it, else decrement it
-    if (deck[currentTier + 1] && currentTier + 1 <= 4) {
+    console.log("nextRound d=", d);
+    console.log("nextRound currentTier+1=", currentTier + 1);
+    console.log("nextRound d[currentTier+1]", d[currentTier + 1]);
+    if (d[currentTier + 1] && currentTier + 1 <= 4) {
       // this.props.updateTier(this.props.currentTier + 1);
-      this.props.updateDeck(true);
+      console.log("updating from pos")
+      // this.props.updateDeck(true);
+      this.props.requestDeck(deckId, currentTier + 1);
     }
     else if (currentTier - 1 > 1) {
       // this.props.updateTier(this.props.currentTier - 1);
       console.log("updating from neg");
-      this.props.updateDeck(false);
+      // this.props.updateDeck(false);
+      this.props.requestDeck(deckId, currentTier + 1);
     }
     else {
       console.log("You Win");
     }
+
+    // console.log("nextRound d=", d);
+    //
+    // for (let i = 4; i >= 1; i--) {
+    //   console.log("nextRound, d[i]=", d[i]);
+    //   if (d[i] && d[i].length > 0) {
+    //     this.props.updateDeck2(i);
+    //     return;
+    //   }
+    // }
+
+    console.log("Great job, keep up the learning!");
+
   }
 
   handleNeg(e) {
@@ -87,13 +118,13 @@ class FlashcardShow extends Component {
     const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
+    this.nextCard();
 
     e.preventDefault();
     if (tierId < 4) {
       this.props.changeTierId(cardId, tierId + 1);
     }
 
-    this.nextCard();
 
   }
 
@@ -101,28 +132,27 @@ class FlashcardShow extends Component {
     const d = this.props.deck.flashcards;
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
-    console.log("This is in handlePos(), deck=" + deck, + ", currentTier=" + currentTier);
+    // console.log("This is in handlePos(), deck=" + deck, + ", currentTier=" + currentTier);
     const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
 
+    this.nextCard();
     e.preventDefault();
     if (tierId > 1) {
       this.props.changeTierId(cardId, tierId - 1);
     }
-
-    this.nextCard();
 
   }
 
   render() {
     if (!Object.keys(this.props.deck.flashcards).length || !this.props.currentTier) return (<div></div>);
     const d = this.props.deck.flashcards;
-    console.log("This is my d=", d);
+    // console.log("This is my d=", d);
     const currentTier = this.props.currentTier;
-    console.log("This is my currentTier=", currentTier);
+    // console.log("This is my currentTier=", currentTier);
     const deck = d[currentTier];
-    console.log("this is my deck before render=", deck);
+    // console.log("this is my deck before render=", deck);
     const flashcard = deck[this.state.deckIndex];
     if (!flashcard) return (<div></div>);
     let flashcardMain;
