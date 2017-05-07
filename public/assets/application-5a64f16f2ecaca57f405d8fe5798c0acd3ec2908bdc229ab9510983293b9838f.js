@@ -38381,6 +38381,10 @@ var fetchdeck = exports.fetchdeck = function fetchdeck(id) {
   return $.ajax({ method: 'GET', url: 'api/deck/' + id });
 };
 
+var createDeck = exports.createDeck = function createDeck(data) {
+  return $.ajax({ method: 'POST', url: 'api/deck', data: { data: data } });
+};
+
 /***/ }),
 /* 355 */
 /***/ (function(module, exports, __webpack_require__) {

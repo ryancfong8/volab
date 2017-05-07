@@ -5,3 +5,7 @@ export const fetchdecks = (params) => (
 export const fetchdeck = (id) => (
   $.ajax({method: 'GET', url: `api/deck/${id}`})
 );
+
+export const createDeck = (data) => (
+    $.ajax({method: 'POST', url: `api/deck`, data: {data}})
+);
