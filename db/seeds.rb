@@ -8,11 +8,35 @@
 
 Deck.create({title: "deck1"})
 
-Flashcard.create(
+Flashcard.create([
 { word: "ryan",
   definition: "a cool guy",
   sentence: "Ryan is a cool guy",
-  origin: "Born 1993",
+  origin: "Born Feb 1993",
   deck_id: 1,
   tier_id: 1
-  })
+  },
+  {
+    word: "byron",
+      definition: "a smart guy",
+      sentence: "Byron is a smart guy",
+      origin: "Born Aug 1993",
+      deck_id: 1,
+      tier_id: 4
+    },
+    {
+      word: "ngoc",
+        definition: "a smart guy",
+        sentence: "Byron is a smart guy",
+        origin: "Born Aug 1993",
+        deck_id: 1,
+        tier_id: 3
+      },
+      {
+        word: "tyler",
+          definition: "a smart guy",
+          sentence: "Byron is a smart guy",
+          origin: "Born Aug 1993",
+          deck_id: 1,
+          tier_id: 2
+        }])
