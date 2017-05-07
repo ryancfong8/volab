@@ -15,7 +15,7 @@ class Decks extends React.Component {
       <div>
         <ul>
           {this.props.decks.map(deck => (
-              <li>{deck.title}</li>
+              <li key = {deck.id}>{deck.title}</li>
           ))}
         </ul>
       </div>

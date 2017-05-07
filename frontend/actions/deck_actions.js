@@ -18,6 +18,6 @@ export const requestAllDecks = () => dispatch => {
   return deckApiUtil.fetchdecks().then(decks=>dispatch(receiveAlldecks(decks)));
 };
 
-export const fetchdeck = (id) => dispatch => {
+export const requestDeck = (id) => dispatch => {
   return deckApiUtil.fetchdeck(id).then(deck=>dispatch(receivedeck(deck)));
 };
