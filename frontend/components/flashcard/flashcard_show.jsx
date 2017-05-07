@@ -76,7 +76,6 @@ class FlashcardShow extends Component {
     const d = this.props.deck.flashcards;
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
-    debugger;
     const flashcard = deck[this.state.deckIndex];
     if (!flashcard) return (<div></div>);
     let flashcardMain;
