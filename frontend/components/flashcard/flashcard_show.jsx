@@ -45,22 +45,30 @@ class FlashcardShow extends Component {
   }
 
   nextRound() {
-
-
     this.setState({
       deckIndex: 0
-    })
+    });
 
     const d = this.props.deck.flashcards;
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
+    console.log("d from nextRound", d);
+    console.log('currentTier from nextRound', currentTier);
+    console.log('deck from nextRound', deck);
+    console.log('deck[currentTier + 1]', deck[currentTier + 1]);
 
-    if (deck[this.props.currentTier + 1] && this.props.currentTier + 1 < 4) {
+    // this is not checking to see if lower level eexists, its
+    // jjust checking to see if our array has a value defined
+    // at this index, which just happens to be true
+    // need to fix
+    
+    if (deck[currentTier + 1] && currentTier + 1 <= 4) {
       // this.props.updateTier(this.props.currentTier + 1);
       this.props.updateDeck(true);
     }
-    else if (this.props.currentTier - 1 > 1) {
+    else if (currentTier - 1 > 1) {
       // this.props.updateTier(this.props.currentTier - 1);
+      console.log("updating from neg");
       this.props.updateDeck(false);
     }
     else {
