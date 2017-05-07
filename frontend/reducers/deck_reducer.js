@@ -5,7 +5,7 @@ import { merge } from 'lodash';
 const nullDeck = {
   id: "",
   title: "",
-  flashcards: {},
+  flashcards: {1:[], 2: [], 3: [], 4:[]},
   currentLevel: 1,
 };
 

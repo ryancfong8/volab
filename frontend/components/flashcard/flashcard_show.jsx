@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class FlashcardShow extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showFront: true,
       deckIndex: 0
@@ -30,7 +30,7 @@ class FlashcardShow extends Component {
     const deckIndex = this.state.deckIndex + 1;
     this.setState({
       deckIndex
-    })
+    });
 
     console.log("deck index", this.state.deckIndex);
     console.log("deck length", deck.length);
@@ -76,7 +76,7 @@ class FlashcardShow extends Component {
       this.props.updateDeck(false);
     }
     else {
-      console.log("You Win")
+      console.log("You Win");
     }
   }
 
@@ -131,7 +131,7 @@ class FlashcardShow extends Component {
         <button
           onClick={ this.toggleShow }
           className="flashcard-show-main">
-          <div className="flashcard-show-text">
+          <div className="flashcard-show-word">
             { flashcard.word }
           </div>
         </button>
@@ -141,46 +141,55 @@ class FlashcardShow extends Component {
         <button
           onClick={ this.toggleShow }
           className="flashcard-show-main">
-          <div className="flashcard-show-text">
-            { flashcard.word }
-          </div>
           <img
             src={ flashcard.pic }
             alt={ flashcard.word }
             className="flashcard-show-img" >
           </img>
-          <div className="flashcard-show-text">
-            { flashcard.definition }
-          </div>
-          <div className="flashcard-show-text">
-            { flashcard.sentence }
-          </div>
-          <div className="flashcard-show-text">
-            { flashcard.origin }
-          </div>
+          <text className="flashcard-show-text">
+            Definition: { flashcard.definition }
+          </text>
+          <text className="flashcard-show-text">
+            Sentence: { flashcard.sentence }
+          </text>
+          <text className="flashcard-show-text">
+            Part of Speech: { flashcard.origin }
+          </text>
         </button>
       );
     }
 
     const negButton = (
       <button
-        onClick={ this.handleNeg }>
+        onClick={ this.handleNeg }
+        className="Result-no">
         <i className="fa fa-times" aria-hidden="true"></i>
       </button>
     );
 
     const posButton = (
       <button
-        onClick={ this.handlePos }>
+        onClick={ this.handlePos }
+        className="Result-yes">
         <i className="fa fa-check" aria-hidden="true"></i>
       </button>
     );
 
+    let buttons;
+      if (!this.state.showFront) {
+        buttons =
+          <div className="buttons">
+            { negButton }
+            <text className="Got-It">Got It?</text>
+            { posButton }
+          </div>;
+      }
+
+
     return (
       <div className="flashcard-show-container">
         { flashcardMain }
-        { negButton }
-        { posButton }
+        { buttons }
       </div>
     );
   }

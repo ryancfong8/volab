@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import { Modal, Button } from 'react-bootstrap';
+import { hashHistory } from 'react-router';
 
 class SignupModal extends React.Component {
 
@@ -41,7 +42,8 @@ class SignupModal extends React.Component {
       email: this.state.email
     };
     this.props.processForm({ user })
-              .then(this.closeModal());
+              .then(this.closeModal())
+              .then(() => hashHistory.push("decks"));
   }
 
   render() {
@@ -54,12 +56,7 @@ class SignupModal extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className='auth-modal'>
-          <Link to='/myprofile' >
-            <button
-              className="session-button signup-button">
-              My Profile
-            </button>
-          </Link>
+          <h2 className="welcome">Welcome {this.props.currentUser.username}!</h2>
         </div>
       );
     } else {
@@ -68,7 +65,7 @@ class SignupModal extends React.Component {
           <button
             onClick={ this.openModal() }
             type='button'
-            className="session-button signup-button">
+            className="session-button-signup-button">
             Sign Up
           </button>
           <Modal
@@ -76,14 +73,15 @@ class SignupModal extends React.Component {
             onHide={ this.closeModal() }
             className='signup-modal'>
             <Modal.Header closeButton>
-              <Modal.Title>Sign Up</Modal.Title>
+              <Modal.Title className = "Modal-Title">
+                <text className='Login'>Sign Up </text>
+              </Modal.Title>
               {errorList}
             </Modal.Header>
 
             <form onSubmit = {this.handleSubmit} className='session-form'>
-              <Modal.Body>
+              <Modal.Body className= "Modal-Body">
                 <label>
-                  Username
                   <input
                     type='text'
                     placeholder='Username'
@@ -91,7 +89,6 @@ class SignupModal extends React.Component {
                     className='auth-input'/>
                 </label>
                 <label>
-                  Email
                   <input
                     type='text'
                     placeholder='Email'
@@ -99,7 +96,6 @@ class SignupModal extends React.Component {
                     className='auth-input'/>
                 </label>
                 <label>
-                  Password
                   <input
                     type='password'
                     placeholder='Password'
@@ -107,7 +103,7 @@ class SignupModal extends React.Component {
                     className='auth-input'/>
                 </label>
               </Modal.Body>
-              <Modal.Footer>
+              <Modal.Footer className = "Modal-Footer">
                 <Button
                   type='submit'
                   className='signup-submit'>

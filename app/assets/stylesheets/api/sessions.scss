@@ -1,3 +1,160 @@
 // Place all the styles related to the Api::Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.auth {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  background-color: #01764a;
+}
+
+.auth-buttons {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.auth-modal {
+  margin: 10px;
+}
+
+.session-button-login-button {
+  width: 80px;
+  height: 45px;
+  font: 20px;
+  border-radius: 5px;
+  background-color: #cccccc;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
+
+.session-button-login-button:hover {
+  background-color: #ffffff;
+}
+
+.session-button-signup-button {
+  width: 80px;
+  height: 45px;;
+  font: 20px;
+  border-radius: 5px;
+  background-color: #cccccc;
+  font-family: 'Lato', sans-serif;
+  cursor:pointer;
+}
+
+.session-button-signup-button:hover {
+  background-color: #ffffff;
+}
+
+.home {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.title {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: 'Lato', sans-serif;
+  font-size: 64px;
+  font-weight: bolder;
+}
+
+.slogan {
+  font-size: 36px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+.pic {
+  object-fit:cover;
+  opacity: .8;
+  z-index: -1;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal-Title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal-Body {
+  display:flex;
+  flex-direction: column;
+}
+
+.Modal-Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Login {
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+.auth-input {
+  width: 350px;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 24px;
+  margin: 10px;
+}
+
+.or {
+  margin: 10px;
+}
+
+.login-submit {
+  font-size: 24px;
+}
+
+.logo-header-pic {
+  height: 70px;
+  width: 200px;
+  margin-left: 10px;
+  cursor:pointer;
+  object-fit: contain;
+}
+
+.logo-header {
+  margin-left: 10px;
+  font-weight: bolder;
+  font-size: 40px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.Main-Logo {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.welcome {
+  color: #ffffff;
+}
