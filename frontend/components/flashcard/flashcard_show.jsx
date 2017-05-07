@@ -44,7 +44,10 @@ class FlashcardShow extends Component {
   }
 
   handleNeg(e) {
-    const flashcard = this.props.deck[this.state.deckIndex];
+    const d = this.props.deck.flashcards;
+    const currentTier = this.props.currentTier;
+    const deck = d[currentTier];
+    const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
 
@@ -58,7 +61,10 @@ class FlashcardShow extends Component {
   }
 
   handlePos(e) {
-    const flashcard = this.props.deck[this.state.deckIndex];
+    const d = this.props.deck.flashcards;
+    const currentTier = this.props.currentTier;
+    const deck = d[currentTier];
+    const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
 
