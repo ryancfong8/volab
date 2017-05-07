@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
 
-import decksReducer from './decks_reducer';
 import deckReducer from './deck_reducer';
+import decksReducer from './decks_reducer';
+import errorsReducer from './errors_reducer';
+import sessionReducer from './session_reducer';
 
 const rootReducer = combineReducers({
+  deck: deckReducer,
   decks: decksReducer,
-  deck: deckReducer
-
+  errors: errorsReducer,
+  session: sessionReducer
 });
 
 export default rootReducer;
