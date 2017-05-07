@@ -20,6 +20,7 @@ const Root = ({ store }) => {
       replace('/decks');
     }
   };
+  // note
   return (
   <Provider store={ store }>
     <div>
