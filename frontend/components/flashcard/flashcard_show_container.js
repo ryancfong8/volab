@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import FlashcardShow from './flashcard_show';
-import { changeTierId } from '../../actions/flashcard_action';
+import { changeTierId } from '../../actions/flashcard_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  deck: state.deck
+  flashcards: state.deck.flashcards
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -40,7 +40,6 @@ class SignupModal extends React.Component {
       password: this.state.password,
       email: this.state.email
     };
-    debugger;
     this.props.processForm({ user })
               .then(this.closeModal());
   }
