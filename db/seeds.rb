@@ -22,7 +22,7 @@ Flashcard.create([
       sentence: "Byron is a smart guy",
       origin: "Born Aug 1993",
       deck_id: 1,
-      tier_id: 4
+      tier_id: 1
     },
     {
       word: "ngoc",
@@ -30,7 +30,7 @@ Flashcard.create([
         sentence: "Byron is a smart guy",
         origin: "Born Aug 1993",
         deck_id: 1,
-        tier_id: 3
+        tier_id: 1
       },
       {
         word: "tyler",
@@ -38,5 +38,5 @@ Flashcard.create([
           sentence: "Byron is a smart guy",
           origin: "Born Aug 1993",
           deck_id: 1,
-          tier_id: 2
+          tier_id: 1
         }])

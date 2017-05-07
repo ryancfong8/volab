@@ -7,17 +7,20 @@ class Deck extends React.Component {
 
     this.state = {
       currentCard: null,
-      currentTier: 1,
+      currentTier: this.props.deck.currentTier,
       deck: this.props.deck
     };
 
+    // this.updateTier = this.updateTier.bind(this);
+    this.updateDeck = this.updateDeck.bind(this);
   }
 
   componentWillMount() {
-    this.props.requestDeck(parseInt(this.props.params.deckId, 10));
+    this.props.requestDeck(parseInt(this.props.params.deckId, 10), 1);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("This is in componentWillReceiveProps, deck_show, nextProps=", nextProps);
     if (nextProps.currentCard) {
       this.setState({ currentCard: nextProps.currentCard });
     }
@@ -28,6 +31,10 @@ class Deck extends React.Component {
       this.setState({ deck: nextProps.deck });
     }
   }
+
+  // componentWillUpdate() {
+  //   this.props.requestDeck(parseInt(this.props.params.deckId, 10));
+  // }
 
   // <div className= "Menu">
   //   <h1>Menu</h1>
@@ -40,6 +47,20 @@ class Deck extends React.Component {
   //     ))}
   //   </ul>
   // </div>
+  //
+  // updateTier(tier) {
+  //   this.setState({
+  //     currentTier: tier
+  //   });
+  // }
+
+  updateDeck(pos) {
+    pos
+      ? this.props.requestDeck(parseInt(this.props.params.deckId, 10),
+          this.props.currentTier + 1)
+      : this.props.requestDeck(parseInt(this.props.params.deckId, 10),
+          this.props.currentTier - 1);
+  }
 
 
   render() {
@@ -48,7 +69,12 @@ class Deck extends React.Component {
 
         <div className = "Flashcard">
           <FlashcardShowContainer
-            currentTier={ this.state.currentTier } />
+            currentTier={ this.state.currentTier }
+            updateTier={ this.updateTier }
+            updateDeck={ this.updateDeck }
+            deck={ this.state.deck }
+            deckId={ parseInt(this.props.params.deckId, 10) }
+            />
         </div>
       </div>
     );
