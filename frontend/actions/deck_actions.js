@@ -9,15 +9,20 @@ export const receiveAlldecks = (decks) =>({
   decks
 });
 
-export const receivedeck = (deck) =>({
+export const receivedeck = (deck, currentLevel) =>({
   type: RECEIVE_DECK,
-  deck
+  deck,
+  currentLevel
 });
 
 export const requestAllDecks = () => dispatch => {
   return deckApiUtil.fetchdecks().then(decks=>dispatch(receiveAlldecks(decks)));
 };
 
-export const requestDeck = (id) => dispatch => {
-  return deckApiUtil.fetchdeck(id).then(deck=>dispatch(receivedeck(deck)));
+export const requestDeck = (id, currentLevel) => dispatch => {
+  return deckApiUtil
+    .fetchdeck(id)
+    .then((deck) => {
+      return dispatch(receivedeck(deck, currentLevel));
+    });
 };

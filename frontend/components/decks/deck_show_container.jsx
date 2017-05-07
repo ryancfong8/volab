@@ -3,11 +3,12 @@ import { requestDeck } from '../../actions/deck_actions.js';
 import Deck from './deck_show.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
-  // deck: state.deck
+  deck: state.deck,
+  currentTier: state.deck.currentLevel
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestDeck: (id) => dispatch(requestDeck(id))
+  requestDeck: (id, currentTier) => dispatch(requestDeck(id, currentTier))
 });
 
 export default connect(

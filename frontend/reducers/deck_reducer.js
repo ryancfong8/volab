@@ -5,7 +5,8 @@ import { merge } from 'lodash';
 const nullDeck = {
   id: "",
   title: "",
-  flashcards: {}
+  flashcards: {},
+  currentLevel: 1,
 };
 
 const toObj = flashcards => {
@@ -26,6 +27,7 @@ const deckReducer = (oldState = nullDeck, action) => {
     case RECEIVE_DECK:
       newdeck = merge({}, oldState);
       newdeck.flashcards = toObj(action.deck.flashcards);
+      newdeck.currentLevel = action.currentLevel;
       return newdeck;
     // case RECEIVE_FLASHCARD:
     //   newDeck = merge({}, oldState);

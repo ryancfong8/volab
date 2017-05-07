@@ -24,12 +24,17 @@ class FlashcardShow extends Component {
   }
 
   nextCard() {
+    const d = this.props.deck.flashcards;
+    const currentTier = this.props.currentTier;
+    const deck = d[currentTier];
     const deckIndex = this.state.deckIndex + 1;
     this.setState({
       deckIndex
     })
 
-    if (this.deckIndex >= this.props.deck.length - 1) {
+    console.log("deck index", this.state.deckIndex);
+    console.log("deck length", deck.length);
+    if (this.state.deckIndex >= deck.length - 1) {
       this.nextRound();
     }
 
@@ -40,7 +45,27 @@ class FlashcardShow extends Component {
   }
 
   nextRound() {
-    console.log("Round over");
+
+
+    this.setState({
+      deckIndex: 0
+    })
+
+    const d = this.props.deck.flashcards;
+    const currentTier = this.props.currentTier;
+    const deck = d[currentTier];
+
+    if (deck[this.props.currentTier + 1] && this.props.currentTier + 1 < 4) {
+      // this.props.updateTier(this.props.currentTier + 1);
+      this.props.updateDeck(true);
+    }
+    else if (this.props.currentTier - 1 > 1) {
+      // this.props.updateTier(this.props.currentTier - 1);
+      this.props.updateDeck(false);
+    }
+    else {
+      console.log("You Win")
+    }
   }
 
   handleNeg(e) {
@@ -64,6 +89,7 @@ class FlashcardShow extends Component {
     const d = this.props.deck.flashcards;
     const currentTier = this.props.currentTier;
     const deck = d[currentTier];
+    console.log("This is in handlePos(), deck=" + deck, + ", currentTier=" + currentTier);
     const flashcard = deck[this.state.deckIndex];
     const cardId = flashcard.id;
     const tierId = flashcard.tier_id;
@@ -80,8 +106,11 @@ class FlashcardShow extends Component {
   render() {
     if (!Object.keys(this.props.deck.flashcards).length || !this.props.currentTier) return (<div></div>);
     const d = this.props.deck.flashcards;
+    console.log("This is my d=", d);
     const currentTier = this.props.currentTier;
+    console.log("This is my currentTier=", currentTier);
     const deck = d[currentTier];
+    console.log("this is my deck before render=", deck);
     const flashcard = deck[this.state.deckIndex];
     if (!flashcard) return (<div></div>);
     let flashcardMain;
