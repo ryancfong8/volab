@@ -25,8 +25,8 @@ class Api::FlashcardController < ApplicationController
   end
 
   def update
-    @flashcard = flashcard.find(params[:id])
-    if @flashcard.update(flashcard_params)
+    @flashcard = flashcard.find(params[:cardId])
+    if @flashcard.update_attribute(:tier_id, params[:tierId])
       render :show
     end
   end

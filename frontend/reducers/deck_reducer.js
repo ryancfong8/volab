@@ -4,7 +4,8 @@ import { merge } from 'lodash';
 
 const nullDeck = {
   id: "",
-  title: ""
+  title: "",
+  flashCards: []
 };
 
 const deckReducer = (oldState = nullDeck, action) => {
