@@ -26,3 +26,7 @@ export const requestDeck = (id, currentLevel) => dispatch => {
       return dispatch(receivedeck(deck, currentLevel));
     });
 };
+
+export const createDeck= (data) => dispatch =>  {
+  return deckApiUtil.createDeck(data).then(deck => dispatch(receivedeck(deck)));
+};

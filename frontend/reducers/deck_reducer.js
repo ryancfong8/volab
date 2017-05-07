@@ -27,7 +27,7 @@ const deckReducer = (oldState = nullDeck, action) => {
     case RECEIVE_DECK:
       newdeck = merge({}, oldState);
       newdeck.flashcards = toObj(action.deck.flashcards);
-      newdeck.currentLevel = action.currentLevel;
+      newdeck.currentLevel = action.currentLevel || 1;
       return newdeck;
     // case RECEIVE_FLASHCARD:
     //   newDeck = merge({}, oldState);
