@@ -15,7 +15,6 @@ class Decks extends React.Component {
     return(
       <div className = "Deck-Index">
         <text className='Dir'>Choose A Deck!</text>
-        <button>Add A Deck</button>
         <ul className = 'Deck-List'>
           {this.props.decks.map(deck => (
               <div key = {deck.id} className = "list-item">
